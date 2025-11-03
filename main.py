@@ -17,7 +17,7 @@ def ruler():
           " " + "1" + " | " + "2" + " | " + "3" + " \n")
 
 def choose():
-    a = raw_input("do you want the first?(please enter yes or no):\n")
+    a = input("do you want the first?(please enter yes or no):\n")
     c = ["yes", "no"]
     if a not in c:
         print("please enter yes or no")
@@ -26,19 +26,19 @@ def choose():
         return a
 
 def chooseAgain():
-    a=raw_input("do you want again?\n")
+    a=input("do you want again?\n")
     c = ["yes", "no"]
     if a not in c:
         print("please enter yes or no")
-        chooseAgain()
+        return chooseAgain()
     else:
         return a
 
 def playermove(cbList, lastList, player):
-    a = input("It is you turn\n")
+    a = int(input("It is you turn\n"))
     if a-1 not in lastList:
         print("Please enter the correct content\n")
-        playermove(cbList, lastList, player)
+        return playermove(cbList, lastList, player)
     else:
         cbList[a-1] = player
         lastList.remove(a-1)
